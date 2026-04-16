@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import PageTracker from "./components/PageTracker";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -18,19 +19,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Neon Architect — Приводим клиентов, а не просто трафик",
-  description:
-    "Архитектура высокоэффективного маркетинга для технологичных компаний. Масштабируем ROI через Data-driven решения и премиальный UX.",
-  keywords: ["digital marketing", "таргетированная реклама", "контекстная реклама", "SMM", "CRM маркетинг"],
+  description: "Архитектура высокоэффективного маркетинга для технологичных компаний.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}>
-      <body>{children}</body>
+      <body>
+        <PageTracker />
+        {children}
+      </body>
     </html>
   );
 }
