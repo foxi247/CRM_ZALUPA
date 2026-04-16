@@ -1,50 +1,16 @@
 const stats = [
-  {
-    value: "+300%",
-    label: "Средний ROI проектов",
-    color: "#e8e6e6",
-  },
-  {
-    value: "124",
-    label: "Успешных кейса за 2023",
-    color: "#e8e6e6",
-  },
-  {
-    value: "15.4М",
-    label: "Рекламного бюджета под управлением",
-    color: "#8ff5ff",
-  },
-  {
-    value: "24/7",
-    label: "Мониторинг показателей",
-    color: "#e8e6e6",
-  },
+  { value: "+300%", label: "Средний ROI проектов",                    color: "#e8e6e6" },
+  { value: "124",   label: "Успешных кейса за 2023",                  color: "#e8e6e6" },
+  { value: "15.4М", label: "Рекламного бюджета под управлением",      color: "#8ff5ff" },
+  { value: "24/7",  label: "Мониторинг показателей",                  color: "#e8e6e6" },
 ];
 
 export default function Stats() {
   return (
-    <section
-      style={{
-        background: "#141414",
-        padding: "5rem 0",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Subtle orb */}
-      <div
-        className="orb"
-        style={{
-          width: 500,
-          height: 200,
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          background: "radial-gradient(ellipse, rgba(143,245,255,0.04) 0%, transparent 70%)",
-        }}
-      />
+    <section style={{ background: "#141414", padding: "5rem 0", position: "relative", overflow: "hidden" }}>
+      <div className="orb" style={{ width: 500, height: 200, top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "radial-gradient(ellipse, rgba(143,245,255,0.04) 0%, transparent 70%)" }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container">
         <div
           style={{
             display: "grid",
@@ -55,7 +21,6 @@ export default function Stats() {
           {stats.map((s, i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <p
-                className="stat-number"
                 style={{
                   fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
                   fontSize: "clamp(2.5rem, 5vw, 4rem)",
@@ -68,15 +33,7 @@ export default function Stats() {
               >
                 {s.value}
               </p>
-              <p
-                style={{
-                  fontSize: "0.85rem",
-                  color: "#adaaaa",
-                  lineHeight: 1.5,
-                  maxWidth: 180,
-                  margin: "0 auto",
-                }}
-              >
+              <p style={{ fontSize: "0.85rem", color: "#adaaaa", lineHeight: 1.5, maxWidth: 180, margin: "0 auto" }}>
                 {s.label}
               </p>
             </div>

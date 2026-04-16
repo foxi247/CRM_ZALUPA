@@ -1,68 +1,29 @@
+"use client";
+
 const services = [
-  {
-    icon: "◎",
-    iconColor: "#8ff5ff",
-    title: "Targeted Advertising",
-    description:
-      "Точная настройка за лидерство в нише. Работаем с самыми небольшими бюджетами. Доведём конверсию до эталона.",
-    tag: "Таргет",
-  },
-  {
-    icon: "⬡",
-    iconColor: "#ac89ff",
-    title: "Contextual Ads (Яндекс / Google)",
-    description:
-      "Захват горячего спроса. Работаем со смыслами небольшого бюджета. Прозрачная аналитика до звонка.",
-    tag: "Контекст",
-  },
-  {
-    icon: "◈",
-    iconColor: "#f3ffca",
-    title: "SMM Strategy",
-    description:
-      "Создаём сильный бренд, а не просто посты. Аудитория, которая знает вас по всему рынку партнёров.",
-    tag: "SMM",
-  },
-  {
-    icon: "</>",
-    iconColor: "#8ff5ff",
-    title: "Web Development",
-    description:
-      "Высококонверсионные лендинги и кастомные порталы на Next.js. Скорость и результат — наш стандарт.",
-    tag: "Dev",
-  },
-  {
-    icon: "✦",
-    iconColor: "#ac89ff",
-    title: "CRM Marketing",
-    description:
-      "Автоматизация воронки и LTV-менеджмент через CRM решения. Клиент возвращается снова и снова.",
-    tag: "CRM",
-  },
+  { icon: "◎", iconColor: "#8ff5ff",  tag: "Таргет",  title: "Targeted Advertising",          description: "Точная настройка за лидерство в нише. Работаем с самыми небольшими бюджетами. Доведём конверсию до эталона." },
+  { icon: "⬡", iconColor: "#ac89ff",  tag: "Контекст", title: "Contextual Ads (Яндекс / Google)", description: "Захват горячего спроса. Работаем со смыслами небольшого бюджета. Прозрачная аналитика до звонка." },
+  { icon: "◈", iconColor: "#f3ffca",  tag: "SMM",     title: "SMM Strategy",                  description: "Создаём сильный бренд, а не просто посты. Аудитория, которая знает вас по всему рынку партнёров." },
+  { icon: "</>",iconColor: "#8ff5ff",  tag: "Dev",     title: "Web Development",               description: "Высококонверсионные лендинги и кастомные порталы на Next.js. Скорость и результат — наш стандарт." },
+  { icon: "✦",  iconColor: "#ac89ff",  tag: "CRM",     title: "CRM Marketing",                 description: "Автоматизация воронки и LTV-менеджмент через CRM решения. Клиент возвращается снова и снова." },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="section" style={{ background: "#0e0e0e" }}>
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
+      <div className="container">
         <div style={{ marginBottom: "3.5rem" }}>
           <p className="label-caps" style={{ color: "#8ff5ff", marginBottom: "1rem" }}>
             Наши экспертизы
           </p>
           <h2
             className="display"
-            style={{
-              fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              color: "#e8e6e6",
-            }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
             ЭКОСИСТЕМА РОСТА
           </h2>
         </div>
 
-        {/* Grid */}
         <div
           style={{
             display: "grid",
@@ -76,16 +37,15 @@ export default function Services() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="card"
               style={{
                 padding: "2rem",
-                borderRadius: 0,
                 background: "#141414",
                 position: "relative",
-                cursor: "default",
+                transition: "background 0.25s",
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#1a1919")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#141414")}
             >
-              {/* Icon */}
               <div
                 style={{
                   fontSize: s.icon === "</>" ? "0.9rem" : "1.5rem",
@@ -99,45 +59,25 @@ export default function Services() {
                 {s.icon}
               </div>
 
-              {/* Title */}
               <h3
                 className="headline"
-                style={{
-                  fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#e8e6e6",
-                  marginBottom: "0.75rem",
-                }}
+                style={{ fontSize: "1rem", fontWeight: 600, marginBottom: "0.75rem" }}
               >
                 {s.title}
               </h3>
 
-              {/* Description */}
-              <p
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#adaaaa",
-                  lineHeight: 1.65,
-                }}
-              >
+              <p style={{ fontSize: "0.875rem", color: "#adaaaa", lineHeight: 1.65 }}>
                 {s.description}
               </p>
 
-              {/* Tag */}
               <div
                 style={{
-                  position: "absolute",
-                  top: "1.5rem",
-                  right: "1.5rem",
-                  background: "rgba(73,72,71,0.2)",
-                  borderRadius: "4px",
+                  position: "absolute", top: "1.5rem", right: "1.5rem",
+                  background: "rgba(73,72,71,0.2)", borderRadius: "4px",
                   padding: "0.25rem 0.6rem",
                   fontSize: "0.65rem",
                   fontFamily: "var(--font-inter), Inter, sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
+                  fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
                   color: "#494847",
                 }}
               >

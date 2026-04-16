@@ -22,18 +22,26 @@ export default function Navigation() {
 
   return (
     <header
-      className={`glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3" : "py-5"
-      }`}
+      className="glass-nav"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        transition: "padding 0.3s",
+        padding: scrolled ? "0.75rem 0" : "1.25rem 0",
+      }}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <nav
+        className="container"
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+      >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" style={{ display: "flex", alignItems: "center", gap: "0.6rem", textDecoration: "none" }}>
           <div
             style={{
-              width: 28,
-              height: 28,
-              borderRadius: "6px",
+              width: 28, height: 28, borderRadius: 6,
               background: "linear-gradient(135deg, #8ff5ff, #ac89ff)",
               flexShrink: 0,
             }}
@@ -41,29 +49,20 @@ export default function Navigation() {
           <span
             style={{
               fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-              fontWeight: 700,
-              fontSize: "1rem",
-              color: "#e8e6e6",
-              letterSpacing: "-0.01em",
+              fontWeight: 700, fontSize: "1rem", color: "#e8e6e6", letterSpacing: "-0.01em",
             }}
           >
             Neon Architect
           </span>
         </a>
 
-        {/* Desktop nav links */}
-        <ul className="hidden lg:flex items-center gap-8">
+        {/* Desktop nav */}
+        <ul className="nav-links" style={{ listStyle: "none", alignItems: "center", gap: "2rem" }}>
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                style={{
-                  fontFamily: "var(--font-inter), Inter, sans-serif",
-                  fontSize: "0.875rem",
-                  color: "#adaaaa",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                }}
+                style={{ fontSize: "0.875rem", color: "#adaaaa", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#e8e6e6")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#adaaaa")}
               >
@@ -73,8 +72,8 @@ export default function Navigation() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <div className="hidden lg:block">
+        {/* Desktop CTA */}
+        <div className="nav-cta">
           <a href="#contact" className="btn-primary" style={{ fontSize: "0.8rem", padding: "0.6rem 1.25rem" }}>
             Получить стратегию
           </a>
@@ -82,29 +81,26 @@ export default function Navigation() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-1"
+          className="nav-burger"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Меню"
+          style={{
+            background: "none", border: "none", cursor: "pointer",
+            flexDirection: "column", gap: "5px", padding: "4px",
+          }}
         >
           {[0, 1, 2].map((i) => (
             <span
               key={i}
               style={{
-                display: "block",
-                width: 22,
-                height: 2,
-                background: "#adaaaa",
-                borderRadius: 2,
-                transition: "all 0.25s",
-                transformOrigin: "center",
-                transform:
-                  menuOpen
-                    ? i === 0
-                      ? "translateY(5.5px) rotate(45deg)"
-                      : i === 2
-                      ? "translateY(-5.5px) rotate(-45deg)"
-                      : "scaleX(0)"
-                    : "none",
+                display: "block", width: 22, height: 2,
+                background: "#adaaaa", borderRadius: 2,
+                transition: "all 0.25s", transformOrigin: "center",
+                transform: menuOpen
+                  ? i === 0 ? "translateY(7px) rotate(45deg)"
+                  : i === 2 ? "translateY(-7px) rotate(-45deg)"
+                  : "scaleX(0)"
+                  : "none",
                 opacity: menuOpen && i === 1 ? 0 : 1,
               }}
             />
@@ -121,7 +117,7 @@ export default function Navigation() {
             padding: "1.5rem 1.5rem 2rem",
           }}
         >
-          <ul className="flex flex-col gap-5 mb-6">
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "1.5rem" }}>
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
